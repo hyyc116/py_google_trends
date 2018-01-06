@@ -18,6 +18,7 @@ class google_trends_crawler:
         logging.info('There are {:} queries and {:} DMAs'.format(len(self._kw_list),len(self._DMAs)))
         self._result_path = result_path
         # logging.info()
+        self._alreadys = [a.strip() for a in open('already_crawled.txt')]
 
 
     def crawl_one_zone(self,i,geo):
@@ -27,6 +28,14 @@ class google_trends_crawler:
         logging.info('crawling aera {:}, saved to {:}/{:}_{:}.csv.'.format(geo,self._result_path,geo,i))
 
     def crawl_all_keywords(self,geo):
+
+
+        file_id = '{:}_{:}'.format(self._result_path,geo)
+
+        if file_id in self._alreadys:
+            return
+        else:
+            open('already_crawled.txt','w+').write(file_id+'\n')
 
         files = []
         for i in range(len(self._kw_list)/4+1):
@@ -56,7 +65,9 @@ class google_trends_crawler:
 
             os.remove(f)
 
-        result.to_csv('{:}/{:}.csv'.format(self._result_path,geo))
+        if result is not None:
+            result.to_csv('{:}/{:}.csv'.format(self._result_path,geo))
+
 
     def crawl_all_zones(self):
         for i,geo in enumerate(self._DMAs):
@@ -84,6 +95,7 @@ class google_trends_crawler:
                 dmas.append(f[:-4])
         print len(dmas)
         print ','.join(dmas)
+
 
 
 if __name__ == '__main__':
