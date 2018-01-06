@@ -24,7 +24,7 @@ class google_trends_crawler:
         self._pytrend.build_payload(self._kw_list[i:i+4], timeframe='2007-01-01 2017-12-31', geo=geo)
         self.sleep()
         self._pytrend.interest_over_time().to_csv('{:}/{:}_{:}.csv'.format(self._result_path,geo,i))
-        logging.info('crawling aera {:}, saved to {:}/{:}_{:}.csv.'.format(self._result_path,geo,geo,i))
+        logging.info('crawling aera {:}, saved to {:}/{:}_{:}.csv.'.format(geo,self._result_path,geo,i))
 
     def crawl_all_keywords(self,geo):
 
