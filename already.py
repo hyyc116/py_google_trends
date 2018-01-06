@@ -1,5 +1,5 @@
 #coding:utf-8
-
+import sys
 for line in open(sys.argv[1]):
     line = line.strip()
     fid = line.split(":")[-1].split('.')[0].strip()
