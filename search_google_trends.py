@@ -29,7 +29,7 @@ class google_trends_crawler:
     def crawl_all_keywords(self,geo):
 
         files = []
-        for i in range(len(self._kw_list)/4):
+        for i in range(len(self._kw_list)/4+1):
             start = i*4
             try:
                 self.crawl_one_zone(start,geo)
@@ -56,7 +56,7 @@ class google_trends_crawler:
 
             os.remove(f)
 
-        result.to_csv('Result/{:}.csv'.format(geo))
+        result.to_csv('{:}/{:}.csv'.format(self._result_path,geo))
 
     def crawl_all_zones(self):
         for i,geo in enumerate(self._DMAs):
