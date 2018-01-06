@@ -33,6 +33,7 @@ class google_trends_crawler:
         file_id = '{:}_{:}'.format(self._result_path,geo)
 
         if file_id in self._alreadys:
+            logging.info('already_crawled:{:}'.format(file_id))
             return
         else:
             open('already_crawled.txt','w+').write(file_id+'\n')
