@@ -102,7 +102,7 @@ if __name__ == '__main__':
         result_path = 'Result_terms'
 
     if geo_type=='state':
-        geo_path = 'State.txt'
+        geo_path = 'state.txt'
     elif geo_type =='DMAs':
         geo_path = 'DMAs.txt'
 
