@@ -1,7 +1,7 @@
 echo 'jobs dmas'
-python search_google_trends.py 'jobs' DMAs 1> jobs_dma.log 2> jobs_dma.log
+# python search_google_trends.py 'jobs' DMAs 1> jobs_dma.log 2> jobs_dma.log
 echo 'jobs state'
-python search_google_trends.py 'jobs' state 1> jobs_state.log 2> jobs_state.log
+# python search_google_trends.py 'jobs' state 1> jobs_state.log 2> jobs_state.log
 
 echo 'skills dmas'
 

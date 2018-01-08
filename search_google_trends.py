@@ -36,7 +36,7 @@ class google_trends_crawler:
             logging.info('already_crawled:{:}'.format(file_id))
             return
         else:
-            open('already_crawled.txt','w+').write(file_id+'\n')
+            open('already_crawled.txt','a').write(file_id+'\n')
 
         files = []
         for i in range(len(self._kw_list)/4+1):
@@ -103,6 +103,7 @@ if __name__ == '__main__':
 
     key_type = sys.argv[1]
     geo_type = sys.argv[2]
+    # key_type = 
 
     if key_type == 'jobs':
         keyword_path = 'jobs.txt'
