@@ -22,7 +22,7 @@ class google_trends_crawler:
 
 
     def crawl_one_zone(self,i,geo):
-        self._pytrend.build_payload(self._kw_list[i:i+4], timeframe='2047-01-01 2017-12-31', geo=geo)
+        self._pytrend.build_payload(self._kw_list[i:i+4], timeframe='2004-01-01 2018-02-25', geo=geo)
         self.sleep()
         self._pytrend.interest_over_time().to_csv('{:}/{:}_{:}.csv'.format(self._result_path,geo,i))
         logging.info('crawling aera {:}, saved to {:}/{:}_{:}.csv.'.format(geo,self._result_path,geo,i))
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     elif key_type =='skills':
         keyword_path = 'skills.txt'
         result_path = 'Result_skills'
-    elif key_type=='terms':
+    elif key_type==' ':
         keyword_path = 'terms.txt'
         result_path = 'Result_terms'
 
